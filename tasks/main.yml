@@ -1,11 +1,15 @@
 ---
-- name: Include OS-specific variables
-  include_vars: "{{ ansible_os_family }}.yml"
+- name: install squid3
+  apt:
+    name: "{{ squid3_package }}"
+    state: present
+    update_cache: yes
 
-# Install RedHat-like
-- include: squid3-RedHat.yml
-  when: ansible_os_family == 'RedHat'
-
-# Install Debian-like
-- include: squid3-Debian.yml
-  when: ansible_os_family == 'Debian'
+- name: copy template
+  template:
+    src: squid.conf.j2
+    dest: "{{ squid3_conf }}"
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart squid3

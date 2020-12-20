@@ -1,25 +1,17 @@
+---
 galaxy_info:
-  author: Jonatas Baldin
-  description: Squid3 for RedHat/CentOS/Debian/Ubuntu
-  company: deployeveryday.com
-
-  license: MIT
-
-  min_ansible_version: 1.8
-
+  role_name: squid3
+  author: Jonatas Baldin forked by Pierre Coimbra in 2020
+  description: Ansible role to install and configure squid3
+  license: GPLv3
+  min_ansible_version: 2.1
   platforms:
-  - name: EL
-    versions:
-    - all
-  - name: Ubuntu
-    versions:
-    - all
-  - name: Debian
-    versions:
-    - all
-
+    - name: Debian
+      versions:
+        - buster
   galaxy_tags:
     - system
     - proxy
-
+    - squid3
+    - cache
 dependencies: []
